@@ -1,0 +1,37 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @provider.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @provider.location %>
+</p>
+
+<p>
+  <strong>Services:</strong>
+  <table class="table"> 
+    <thead> 
+      <th> Name </th>
+      <th> Description </th>
+      <th> Cost </th> 
+      <th> Capacity </th> 
+      <th colspan="4"></th>
+    </thead> 
+    <tbody>
+      <% @provider.services.each do |service| %>
+        <tr>
+          <td> <%= service.name %> </td>
+          <td> <%= service.description %> </td>
+          <td> <%= service.cost %> </td>
+          <td> <%= service.capacity %> </td>
+        </tr>
+        <% end %>
+
+    </ol>
+</p>
+
+
+<%= link_to 'Edit', edit_provider_path(@provider) %> |
+<%= link_to 'Back', providers_path %>

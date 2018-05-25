@@ -1,0 +1,37 @@
+
+<h1>Providers</h1>
+
+<div style="float:right"> 
+  <% if provider_signed_in? %> 
+    <%= link_to 'Log out', sign_out_path %>
+  <% else %> 
+    <%= link_to 'Are you a healthcare provider? Log in here!', new_provider_session_path %>
+  <% end %>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th> Service Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @providers.each do |provider| %>
+      <tr>
+        <td><%= provider.name %></td>
+        <td><%= provider.location %></td>
+        <td> <% provider.services.each do |service| %> 
+          <p> <%= service.name %>
+        <% end %> 
+        </p></td>
+        <td><%= link_to 'Show', provider %></td>
+        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

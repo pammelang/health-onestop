@@ -1,0 +1,51 @@
+<%= form_for(edit_provider(provider)) do |f| %>
+  <% if provider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+
+      <ul>
+      <% provider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <strong><%= f.label :name %></strong>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <strong><%= f.label :location %></strong>
+    <%= f.text_field :location %>
+  </div>
+
+  <table class="table table-condensed"> 
+    <strong><%= f.label :services %></strong>
+    <thead> 
+      <th> Name </th>
+      <th> Description </th>
+      <th> Cost </th> 
+      <th> Capacity </th> 
+      <th colspan="4"></th>
+    </thead> 
+    <tbody>
+      <%= f.fields_for :services do |ff| %>
+        <tr>
+          <td> Name: <%= ff.text_field :name %> </td> 
+          <td> Description: <%= ff.text_field :description %> </td> 
+          <td> Cost: <%= ff.text_field :cost %> </td> 
+          <td> Capacity: <%= ff.text_field :capacity %> </td> 
+          <td>
+            <% if ff.object.persisted? %>
+              <%= ff.check_box :_destroy %>
+              <%= ff.label :_destroy, "Destroy" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table> 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
