@@ -11,7 +11,15 @@ This is a one-stop web app that will contain all the information of healthcare p
 This web app will mostly be funded by fees from healthcare providers, as well as governmental funding. 
 
 ##### How to run: 
+The app is hosted on a heroku server at: 
+https://morning-caverns-31914.herokuapp.com/
 
+The root page is an index of all the healthcare providers with their respective services. 
+The app is designed to only have authenticated admin be able to register new healthcare providers, instead of them registering themselves. To do so, go to the url `https://morning-caverns-31914.herokuapp.com/admin`, and enter the username `hos_admin` and password `hos_secret` into the pop-up. Once you are authenticated as an admin, you will be able to register and delete healthcare providers. 
+
+Healthcare providers can themselves log in with their email and password, and proceed to edit and create new services. 
+
+##### Miscellaneous
 
 Entities: 
 - Providers - Name, Location, Services, Email, Encrypted_password
