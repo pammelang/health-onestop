@@ -12,13 +12,13 @@ This web app will mostly be funded by fees from healthcare providers, as well as
 
 ##### How to run: 
 
+
 Entities: 
 - Providers - Name, Location, Services, Email, Encrypted_password
 - Services - Name, Description, Cost, Capacity, Provider_id
 
 Pages: 
-- Home page 
-- Services page 
+- Admin Home page 
 - Providers page 
 - Provider login page 
 - Provider edit page 

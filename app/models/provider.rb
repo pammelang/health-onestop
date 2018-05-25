@@ -5,7 +5,5 @@ class Provider < ApplicationRecord
         
   :rememberable, :trackable, :validatable
   has_many :services
-  accepts_nested_attributes_for :services, 
-    allow_destroy: true,
-    reject_if: :all_blank
+  accepts_nested_attributes_for :services, allow_destroy: true, reject_if: :all_blank
 end
